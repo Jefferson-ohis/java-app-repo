@@ -16,7 +16,7 @@ pipeline {
         stage ('RunSonarCloudAnalysis') {
             steps {
                 withCredentials([string(credentialsId: 'SONAR_TOKEN', variable: 'SONAR_TOKEN')]) {
-                    sh 'mvn clean verify sonar:sonar -Dsonar.login=$SONAR_TOKEN -Dsonar.organisation=jefferson-ohis -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=jefferson-ohis_java-app'
+                    sh 'mvn clean verify sonar:sonar -Dsonar.login=$SONAR_TOKEN -Dsonar.organization=jefferson-ohis -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=jefferson-ohis_java-app'
                 }
             }
         }
