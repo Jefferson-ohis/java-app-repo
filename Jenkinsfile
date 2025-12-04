@@ -38,8 +38,12 @@ pipeline {
             steps {
                 dir("${WORKSPACE}") {
                     sh '''
+                        # install snyk
                         curl -Lo snyk https://static.snyk.io/cli/latest/snyk-linux 
+
                         chmod +x snyk
+                        
+                        #authenticate snyk
                         ./snyk auth --auth-type=token $SNYK_TOKEN
                         chmod +x mvnw
                         ./mvnw dependency:tree -DoutputType=dot
