@@ -40,7 +40,7 @@ pipeline {
                     sh '''
                         curl -Lo snyk https://static.snyk.io/cli/latest/snyk-linux 
                         chmod +x snyk
-                        ./snyk auth --auth-type=token $SYNK_TOKEN
+                        ./snyk auth --auth-type=token $SNYK_TOKEN
                         chmod +x mvnw
                         ./mvnw dependency:tree -DoutputType=dot
                         ./snyk test --all-projects --severity-threshold=medium || true
